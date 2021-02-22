@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+const api = {
+	call: '/kras/api/call',
+	transaction: '/kras/api/transaction',
+	users: '/kras/api/user/admin'
+};
+
+const type = 'users';
+
+$.ajax({
+	type: 'GET',
+	url: api[type],
+	success: (data) => {debugger;
+		$('#contents').html(data);
+	}, 
+	error: (res) => {debugger;
+		console.log(res);
+	}
+});
+</script>
+</head>
+<body>
+	<h1>Hello world!</h1>
+	<div id="contents"></div>
+</body>
+</html>

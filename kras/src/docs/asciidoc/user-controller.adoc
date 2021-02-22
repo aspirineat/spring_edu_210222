@@ -1,0 +1,23 @@
+= UserController
+
+== list-user
+
+include::{snippets}/user-controller-test/list-user/path-parameters.adoc[]
+include::{snippets}/user-controller-test/list-user/http-response.adoc[]
+include::{snippets}/user-controller-test/list-user/response-fields.adoc[]
+include::{snippets}/user-controller-test/list-user/curl-request.adoc[]
+include::{snippets}/user-controller-test/list-user/http-request.adoc[]
+include::{snippets}/user-controller-test/list-user/httpie-request.adoc[]
+include::{snippets}/user-controller-test/list-user/request-body.adoc[]
+include::{snippets}/user-controller-test/list-user/response-body.adoc[]
+
+== view-user
+
+include::{snippets}/user-controller-test/view-user/path-parameters.adoc[]
+include::{snippets}/user-controller-test/view-user/http-response.adoc[]
+include::{snippets}/user-controller-test/view-user/response-fields.adoc[]
+include::{snippets}/user-controller-test/view-user/curl-request.adoc[]
+include::{snippets}/user-controller-test/view-user/http-request.adoc[]
+include::{snippets}/user-controller-test/view-user/httpie-request.adoc[]
+include::{snippets}/user-controller-test/view-user/request-body.adoc[]
+include::{snippets}/user-controller-test/view-user/response-body.adoc[]

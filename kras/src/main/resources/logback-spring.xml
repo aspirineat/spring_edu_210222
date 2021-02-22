@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration debug="true" scan="true" scanPeriod="30 seconds">
+
+	<property name="LOG_PATH" value="C:/krasLog"/>
+	<property name="LOG_FILE_NAME" value="kras"/>
+	<property name="LOG_PATTERN" value="%-5level %d{yy-MM-dd HH:mm:ss}[%thread] [%logger{0}:%line] - %msg%n"/>
+ 
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+            	${LOG_PATTERN}
+            </pattern>
+        </encoder>
+    </appender>
+ 
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${LOG_FILE_NAME}.log</file>
+        <encoder>
+            <pattern>
+            	${LOG_PATTERN}
+            </pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+            	<!-- 파일당 최고 용량 kb, mb, gb, 로그파일 분할 -->
+            	<maxFileSize>100KB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- 일자별 로그파일 최대 보관주기(~일), 해당 설정일 이상된 파일은 자동으로 제거-->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+    </appender>
+	   
+    <logger name="com.uitgis.kras"  level="info" additivity="false">
+    	<appender-ref ref="consoleAppender"/>
+    </logger>
+         
+    <!-- mybatis query log setting -->
+	<logger name="jdbc" level="OFF"/>
+	<logger name="jdbc.audit" level="OFF"/>
+	<logger name="jdbc.resultset" level="OFF"/>
+	<logger name="jdbc.connection" level="OFF"/>
+	<logger name="jdbc.sqlonly" level="OFF"/>
+	<logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+		<appender-ref ref="consoleAppender"/>
+	</logger>
+	<logger name="jdbc.resultsettable" level="OFF"/>
+
+    <root level="error">
+    	<appender-ref ref="consoleAppender"/>
+        <appender-ref ref="fileAppender" />
+    </root>
+ 
+</configuration>

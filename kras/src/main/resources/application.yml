@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    active: oracle
+jwt:
+  secretKey: kras
+attach:
+  folderPath: D:/krasInitFile
+---
+spring:
+  profiles: port
+server:
+  port: 9090
+---
+spring:
+  profiles: oracle
+  
+server:
+  servlet:
+    context-path: /kras
+
+database:
+  datasource:
+    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    jdbcUrl: jdbc:log4jdbc:oracle:thin:@221.148.35.69:1535:kras
+    username: lsh
+    password: lsh
+    
+---
+spring:
+  profiles: postgres
+  
+server:
+  port: 9080
+  servlet:
+    context-path: /kras
+
+database:
+  datasource:
+    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    jdbcUrl: jdbc:log4jdbc:postgresql://localhost:5432/mhr
+    username: mhr
+    password: mhr
+    
+    

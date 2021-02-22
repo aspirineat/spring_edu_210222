@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.uitgis.kras.mapper.SggChklistMapper">
+
+	<insert id="insertSggChklist" parameterType="com.uitgis.kras.model.SggChklist">
+		INSERT INTO SGG_CHKLIST (
+			<if test="sgg_name != null">SGG_NAME,</if>
+			<if test="instt_code != null">INSTT_CODE,</if>
+			SGG_CODE
+		) VALUES (
+			<if test="sgg_name != null">#{sgg_name},</if>
+	 		<if test="instt_code != null">>#{instt_code},</if>
+	 		#{sgg_code}
+	 	)
+	</insert>
+	
+	<delete id="deleteSggChklist" parameterType="com.uitgis.kras.model.SggChklist">
+		DELETE
+		FROM SGG_CHKLIST
+		WHERE SGG_CODE=#{sgg_code}
+	</delete>
+</mapper>
