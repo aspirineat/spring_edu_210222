@@ -67,4 +67,44 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 
+	// test case
+	
+	// * 로그인 ---------------------------------------------------------------------
+	// 1. admin/admin 로그인
+	// url > http://localhost:8080/kras/jwt/login
+	// Header 
+	//  - Accept : application/json
+	//  - Content-Type : application/json;charset=UTF-8
+	// Body
+	/*
+	 {
+		"login_id": "admin",
+	    "passwd": "admin"
+	 }
+	*/
+	// 2. user/user 로그인
+	
+	// * admin url 호출-------------------------------------------------------------
+	// url > http://localhost:8080/kras/admin/hello/call
+	// Header
+	//  - Accept : application/json
+	//  - Content-Type : application/json;charset=UTF-8
+	//  - X-AUTH-TOKEN : 로그인 token
+	// admin 계정 / user 계정 각각 호출
+	
+	// * PUT url 호출---------------------------------------------------------------
+	// url > http://localhost:8080/kras/api/users/test
+	// Header
+	//  - Accept : application/json
+	//  - Content-Type : application/json;charset=UTF-8
+	//  - X-AUTH-TOKEN : 로그인 token
+	// Body
+	/*
+	 {
+	    "passwd": "test2"
+	 }
+	*/
+	// user 계정 / test 계정 각각 호출
+	
+	
 }

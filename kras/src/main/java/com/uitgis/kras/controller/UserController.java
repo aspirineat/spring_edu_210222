@@ -21,7 +21,7 @@ import com.uitgis.kras.util.KeyUtil;
 import com.uitgis.kras.util.ValidUtil;
 
 @RestController
-@RequestMapping("api/user")
+@RequestMapping("api/users")
 public class UserController {
 
 	@Autowired

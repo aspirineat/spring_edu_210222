@@ -8,14 +8,18 @@
 const api = {
 	call: '/kras/api/call',
 	transaction: '/kras/api/transaction',
-	users: '/kras/api/user/admin'
+	users: '/kras/api/users/admin3'
 };
 
 const type = 'users';
+const xAuthToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0Iiwicm9sZXMiOlsiRVRDIiwiQVBJIl0sImlhdCI6MTYxNDA2Mzc3NiwiZXhwIjoxNjE0MDY1NTc2fQ.Cs_RxMnRoDTMwamgcj-J0342ikcodfUnfFsNdjeSiCo';
 
 $.ajax({
 	type: 'GET',
 	url: api[type],
+	beforeSend: function (xhr) {
+        xhr.setRequestHeader('X-AUTH-TOKEN', xAuthToken);
+    },
 	success: (data) => {debugger;
 		$('#contents').html(data);
 	}, 
